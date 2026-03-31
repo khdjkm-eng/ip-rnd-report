@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP-R&D 전략 최종 보고서 — 목차 구성</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f4f0;
+    color: #1a1a18;
+    min-height: 100vh;
+    padding: 32px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .toc-header { text-align: center; margin-bottom: 32px; }
+  .toc-header h1 { font-size: 22px; font-weight: 500; color: #1a1a18; margin-bottom: 6px; }
+  .toc-header p { font-size: 13px; color: #73726c; }
+
+  .section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .section-card {
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 0.5px solid rgba(0,0,0,0.12);
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .section-card:hover { border-color: rgba(0,0,0,0.3); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section-card.active { border-color: rgba(0,0,0,0.35); }
+
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .card-num {
+    width: 26px; height: 26px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500; flex-shrink: 0;
+  }
+  .card-title { font-size: 14px; font-weight: 500; color: #1a1a18; line-height: 1.3; }
+  .card-subtitle { font-size: 11px; color: #888780; margin-top: 2px; }
+
+  .card-items { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .card-items li {
+    font-size: 12px; color: #5f5e5a;
+    padding-left: 12px; position: relative; line-height: 1.5;
+  }
+  .card-items li::before { content: "·"; position: absolute; left: 2px; color: #b4b2a9; }
+
+  .detail-panel {
+    margin-top: 16px; border-radius: 12px;
+    border: 0.5px solid rgba(0,0,0,0.12);
+    background: #fff; padding: 20px; display: none;
+  }
+  .detail-panel.show { display: block; }
+  .detail-title { font-size: 15px; font-weight: 500; color: #1a1a18; margin-bottom: 14px; }
+  .detail-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .detail-col h4 {
+    font-size: 11px; font-weight: 500; color: #73726c;
+    margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .detail-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .detail-col ul li {
+    font-size: 12px; color: #1a1a18;
+    padding: 5px 10px; background: #f5f4f0;
+    border-radius: 6px; border: 0.5px solid rgba(0,0,0,0.08);
+  }
+
+  .hint { font-size: 12px; color: #b4b2a9; text-align: center; margin-top: 10px; }
+
+  .c1 .card-num { background: #EEEDFE; color: #3C3489; }
+  .c2 .card-num { background: #E1F5EE; color: #0F6E56; }
+  .c3 .card-num { background: #FAEEDA; color: #854F0B; }
+  .c4 .card-num { background: #FAECE7; color: #993C1D; }
+  .c5 .card-num { background: #E6F1FB; color: #185FA5; }
+  .c6 .card-num { background: #FBEAF0; color: #993556; }
+  .c7 .card-num { background: #EAF3DE; color: #3B6D11; }
+  .c8 .card-num { background: #F1EFE8; color: #5F5E5A; }
+
+  @media (max-width: 600px) {
+    .section-grid { grid-template-columns: 1fr; }
+    .detail-cols { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #1c1c1a; color: #e2e0d6; }
+    .section-card { background: #28281f; border-color: rgba(255,255,255,0.1); }
+    .section-card:hover { border-color: rgba(255,255,255,0.25); }
+    .card-title { color: #e2e0d6; }
+    .card-items li { color: #a8a69e; }
+    .detail-panel { background: #28281f; border-color: rgba(255,255,255,0.1); }
+    .detail-title { color: #e2e0d6; }
+    .detail-col h4 { color: #a8a69e; }
+    .detail-col ul li { background: #1c1c1a; color: #e2e0d6; border-color: rgba(255,255,255,0.08); }
+    .toc-header h1 { color: #e2e0d6; }
+    .c1 .card-num { background: #26215C; color: #AFA9EC; }
+    .c2 .card-num { background: #04342C; color: #5DCAA5; }
+    .c3 .card-num { background: #412402; color: #FAC775; }
+    .c4 .card-num { background: #4A1B0C; color: #F0997B; }
+    .c5 .card-num { background: #042C53; color: #85B7EB; }
+    .c6 .card-num { background: #4B1528; color: #ED93B1; }
+    .c7 .card-num { background: #173404; color: #97C459; }
+    .c8 .card-num { background: #2C2C2A; color: #B4B2A9; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="toc-header">
+    <h1>📋 IP-R&D 전략 최종 보고서 — 목차 구성</h1>
+    <p>섹션을 클릭하면 세부 항목을 확인할 수 있습니다</p>
+  </div>
+
+  <div class="section-grid" id="grid"></div>
+  <div id="detail" class="detail-panel"></div>
+  <p class="hint">▲ 카드를 클릭해 세부 목차 확인</p>
+</div>
+
+<script>
+const sections = [
+  {
+    cls: "c1", num: "00",
+    title: "Executive Summary",
+    subtitle: "경영진 요약",
+    items: ["핵심 발견사항 3~5가지", "전략적 기회 및 리스크 요약", "의사결정 제언"],
+    cols: [
+      { head: "핵심 구성요소", items: ["1페이지 경영 요약 (Key Findings)", "기회·리스크 매트릭스 요약", "투자 우선순위 제언 (Top 3)", "보고서 활용 가이드"] },
+      { head: "산출물 형태", items: ["경영진 브리핑 슬라이드", "1Page 인포그래픽 요약", "액션 아이템 체크리스트"] }
+    ]
+  },
+  {
+    cls: "c2", num: "01",
+    title: "기술 환경 분석",
+    subtitle: "기술 트렌드 & 시장 구조",
+    items: ["글로벌 기술 트렌드 분석", "산업 구조 및 밸류체인 분석", "기술 성숙도 곡선(S-Curve)"],
+    cols: [
+      { head: "세부 목차", items: ["1.1 글로벌 기술 메가트렌드", "1.2 국내외 시장 구조 분석", "1.3 기술 성숙도 곡선 (S-Curve)", "1.4 핵심 기술 분류 체계 (IPC/CPC)"] },
+      { head: "분석 방법론", items: ["특허 출원 트렌드 분석", "기술 수명주기 매핑", "산업 밸류체인 분해", "PEST 환경 분석"] }
+    ]
+  },
+  {
+    cls: "c3", num: "02",
+    title: "특허 포트폴리오 분석",
+    subtitle: "자사 보유 IP 현황 진단",
+    items: ["특허 수량·질적 지표 분석", "기술 분야별 포트폴리오 맵", "특허 강도(Patent Strength) 평가"],
+    cols: [
+      { head: "세부 목차", items: ["2.1 특허 포트폴리오 현황 (양적)", "2.2 특허 품질 지표 분석 (피인용수)", "2.3 기술 분야별 포트폴리오 맵", "2.4 특허 강도 및 가치 평가"] },
+      { head: "핵심 지표", items: ["피인용 지수 (Citation Index)", "특허 패밀리 규모", "독립청구항 범위 분석", "특허 잔여 수명 분포"] }
+    ]
+  },
+  {
+    cls: "c4", num: "03",
+    title: "기술 로드맵 (TRM)",
+    subtitle: "미래 기술 방향성 설계",
+    items: ["현재~미래 기술 진화 경로", "핵심 기술 요소 분류", "기술 개발 타임라인 설계"],
+    cols: [
+      { head: "세부 목차", items: ["3.1 기술 로드맵 설계 방법론", "3.2 단기·중기·장기 기술 진화도", "3.3 핵심 기술 요소 (CTE) 도출", "3.4 기술 개발 우선순위 매트릭스"] },
+      { head: "TRM 구성 레이어", items: ["시장 수요 레이어", "제품·서비스 레이어", "핵심 기술 레이어", "기반 기술·인프라 레이어"] }
+    ]
+  },
+  {
+    cls: "c5", num: "04",
+    title: "공백 기술 식별",
+    subtitle: "미래 먹거리 기회 발굴",
+    items: ["특허 공백 지도 (White Space Map)", "신규 출원 가능 기술 도출", "기술-시장 연계 기회 분석"],
+    cols: [
+      { head: "세부 목차", items: ["4.1 특허 공백 지도 (White Space Map)", "4.2 기술-기능 매트릭스 분석", "4.3 신규 출원 가능 기술 도출", "4.4 기술-시장 연계 기회 분석"] },
+      { head: "공백 유형 분류", items: ["경쟁 공백 (Blue Ocean)", "기술 결합 공백 (Fusion Gap)", "응용 공백 (Application Gap)", "지역별 공백 (Geographic Gap)"] }
+    ]
+  },
+  {
+    cls: "c6", num: "05",
+    title: "경쟁사 특허 분석",
+    subtitle: "경쟁 구도 & 전략 파악",
+    items: ["주요 경쟁사 특허 포트폴리오 비교", "핵심 특허 보유자 네트워크", "경쟁사 R&D 방향성 예측"],
+    cols: [
+      { head: "세부 목차", items: ["5.1 경쟁사 특허 출원 동향 비교", "5.2 핵심 특허 보유자 네트워크 분석", "5.3 경쟁사 기술 집중 영역 매핑", "5.4 경쟁사 R&D 방향성 예측"] },
+      { head: "분석 프레임", items: ["특허 인용 네트워크 분석", "기술 집중도 지수 (HHI)", "출원인별 포트폴리오 비교", "국가별 특허 전략 분석"] }
+    ]
+  },
+  {
+    cls: "c7", num: "06",
+    title: "특허 침해 리스크 진단",
+    subtitle: "선제적 리스크 관리 체계",
+    items: ["특허 지뢰밭 (Patent Minefield) 분석", "침해 가능성 등급화", "FTO 검토 및 대응 전략"],
+    cols: [
+      { head: "세부 목차", items: ["6.1 핵심 제품·기술별 FTO 검토", "6.2 침해 리스크 등급화 (High/Mid/Low)", "6.3 특허 지뢰밭 (Minefield) 분석", "6.4 회피 설계·라이선스 협상 전략"] },
+      { head: "리스크 대응 옵션", items: ["설계 우회 (Design-Around)", "라이선스 협상 (In-Licensing)", "무효화 도전 (IPR/PGR)", "크로스 라이선스 협상"] }
+    ]
+  },
+  {
+    cls: "c8", num: "07",
+    title: "R&D 전략 제언 & 실행계획",
+    subtitle: "의사결정 지원 전략 제안",
+    items: ["IP 포트폴리오 강화 로드맵", "R&D 투자 우선순위 제안", "단계별 실행 계획 (Action Plan)"],
+    cols: [
+      { head: "세부 목차", items: ["7.1 IP 포트폴리오 강화 전략", "7.2 R&D 투자 우선순위 매트릭스", "7.3 특허 확보 전략 (출원·매입·라이선스)", "7.4 단계별 실행 계획 및 KPI"] },
+      { head: "전략 유형", items: ["자체 개발 (Build) 전략", "기술 매입 (Buy) 전략", "협력·공동연구 (Partner) 전략", "라이선스 수익화 전략"] }
+    ]
+  }
+];
+
+let active = null;
+const grid = document.getElementById('grid');
+const detail = document.getElementById('detail');
+
+sections.forEach((s, i) => {
+  const card = document.createElement('div');
+  card.className = `section-card ${s.cls}`;
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="card-num">${s.num}</div>
+      <div>
+        <div class="card-title">${s.title}</div>
+        <div class="card-subtitle">${s.subtitle}</div>
+      </div>
+    </div>
+    <ul class="card-items">${s.items.map(it => `<li>${it}</li>`).join('')}</ul>
+  `;
+  card.onclick = () => {
+    if (active === i) {
+      active = null;
+      detail.className = 'detail-panel';
+      card.classList.remove('active');
+      return;
+    }
+    document.querySelectorAll('.section-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    active = i;
+    detail.className = 'detail-panel show';
+    detail.innerHTML = `
+      <div class="detail-title">${s.num} ${s.title} — 세부 목차</div>
+      <div class="detail-cols">
+        ${s.cols.map(col => `
+          <div class="detail-col">
+            <h4>${col.head}</h4>
+            <ul>${col.items.map(it => `<li>${it}</li>`).join('')}</ul>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
